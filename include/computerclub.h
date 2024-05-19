@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include <queue>
+#include <cstdint>
 
 // Класс компьютерный клуб, обрабатывающий информацию из файла
 class ComputerClub
