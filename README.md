@@ -38,5 +38,5 @@ cd ../testExample/Realese
 В папке `testExample` лежат несколько `.txt` файлов для тестирования программы.
 Для запуска программы необходимо перейти в папку `testExample/Debug` или `testExample/Realese` и запустить исполняемый файл:
 ```
-task.exe test1.txt
+task.exe ../test1.txt
 ```
