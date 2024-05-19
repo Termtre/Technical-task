@@ -12,3 +12,4 @@ _deps
 build/
 testExample/Debug
 testExample/Realese
+*.exe

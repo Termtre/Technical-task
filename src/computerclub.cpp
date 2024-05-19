@@ -58,7 +58,17 @@ void ComputerClub::show()
 
 		std::cout << std::endl;
 
-		if (time < timeOpen || time >= timeClose)
+		if (time == timeClose)
+		{
+			if (id == 1) std::cout << time << " 13 " << errors[NotOpenYet] << std::endl;
+			else std::cout << time << " 13 " << errors[ClientUnknown] << std::endl;
+
+			closedClub();
+
+			continue;
+		}
+
+		if (time < timeOpen || time > timeClose)
 		{
 			closedClub();
 
@@ -103,6 +113,8 @@ void ComputerClub::show()
 			}
 			case 3:
 			{
+				if (it->second != 0) break;
+
 				if (freeTable)
 				{
 					std::cout << time << " 13 " << errors[ICanWaitNoLonger] << std::endl;
@@ -127,18 +139,21 @@ void ComputerClub::show()
 				nTable = it->second;
 				clientBase.erase(name);
 
-				if (queueForTable.empty())
+				if (nTable != 0)
 				{
-					tableBase[nTable - 1].setEndTime(time);
-					tableBase[nTable - 1].busy = false;
-					freeTable++;
-				}
-				else
-				{
-					name = queueForTable.front();
-					std::cout << time << " 12 " << name << " " << nTable << std::endl;
-					queueForTable.pop();
-					clientBase.find(name)->second = nTable;
+					if (queueForTable.empty())
+					{
+						tableBase[nTable - 1].setEndTime(time);
+						tableBase[nTable - 1].busy = false;
+						freeTable++;
+					}
+					else
+					{
+						name = queueForTable.front();
+						std::cout << time << " 12 " << name << " " << nTable << std::endl;
+						queueForTable.pop();
+						clientBase.find(name)->second = nTable;
+					}
 				}
 
 				break;
