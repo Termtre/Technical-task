@@ -1,6 +1,7 @@
 # Technical-task
 
 ### Клонирование репозитория
+Для корректной компиляции на Windows с помощью mingw проследите, чтобы в пути до локального репозитория не было кириллицы 
 ```
 git clone https://github.com/Termtre/Technical-task
 ```
@@ -15,7 +16,7 @@ cd build
 ```
 3. Соберите проект
 ```
-cmake ../
+cmake -G "MinGW Makefiles" ../
 ```
 ### Компиляция
 1. Перейдите в папку с бинарными файлами
@@ -28,15 +29,11 @@ cmake --build . --target task
 ```
 3. Исполняемый файл будет в следующей директории:
 ```
-cd ../testExample/Debug
-```
-или
-```
-cd ../testExample/Realese
+cd ../testExample
 ```
 ### Пример использования
 В папке `testExample` лежат несколько `.txt` файлов для тестирования программы.
-Для запуска программы необходимо перейти в папку `testExample/Debug` или `testExample/Realese` и запустить исполняемый файл:
+Пример использования
 ```
-task.exe ../test1.txt
+task.exe test1.txt
 ```
