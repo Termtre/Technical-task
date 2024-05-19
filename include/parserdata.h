@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+// Фомичев Дмитрий
+
 #include <string>
 #include <cstdint>
 
